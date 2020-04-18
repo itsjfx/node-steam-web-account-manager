@@ -33,8 +33,9 @@ Copy `config.sample.json` to `config.json` and edit the settings as you wish.
 - `restrictAccess` - `true` if you want to limit access by IP address (see `allowedAddresses`)
 - `allowedAddresses` - An array of IP addresses that are allowed access if `restrictAccess` is `true`
 
-You may have noticed that there's no options for HTTPS. This is currently unsupported. Use nginx or Apache as a proxy
-if you want HTTPS for now.
+You may have noticed that there's no options for HTTPS. This is currently unsupported. Use nginx as a proxy instead.
+
+For frontend configuration please make sure you modify the SERVER_URL varialbe in the main.js file.
 
 ## Deployment
 
