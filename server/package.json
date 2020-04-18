@@ -1,0 +1,16 @@
+{
+  "name": "steam-web-account-manager",
+  "version": "1.0.0",
+  "description": "This is a node.js web server that returns Steam two-factor login codes and login details for use in login and mobile trade confirmation.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jfx",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "steam-totp": "^2.1.1"
+  }
+}

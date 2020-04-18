@@ -1,0 +1,13 @@
+.container {
+	margin-left: 50px;
+	text-align: left;
+}
+
+.hide-by-default {
+	display: none;
+}
+
+.username, .two_factor_code, .password {
+	color: #4bd180;
+	cursor: pointer;
+}
