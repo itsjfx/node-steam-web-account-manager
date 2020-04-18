@@ -7,7 +7,7 @@ alternate accounts. You should use the official Steam app for any account with s
 
 This project is a fork (but standalone nonetheless) of steam-twofactor-server by DoctorMcKay: https://github.com/DoctorMcKay/steam-twofactor-server/ with the current additions:
 - Accounts now have a password, nickname and steamid stored alongside the identity secret and shared secret.
-- There is now an endpoint which lists the details (username, password, nickname and a 2 factor code) for every account stored
+- There is now an endpoint which lists the details (username, password, nickname and two factor code) for every account stored
 - Accounts are stored in one file instead of seperate files, mainly because of the method above to reduce I/O
 - The "key" endpoint is untouched, however the "code" endpoint which simply gives a 2FA code has been reworked to return a JSON instead of a `text/plain` response.
 	- As the "key" endpoint has been untouched, this still means that the userscript works
