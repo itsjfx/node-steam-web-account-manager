@@ -35,7 +35,7 @@ Copy `config.sample.json` to `config.json` and edit the settings as you wish.
 
 You may have noticed that there's no options for HTTPS. This is currently unsupported. Use nginx as a proxy instead.
 
-For frontend configuration please make sure you modify the SERVER_URL varialbe in the main.js file.
+For frontend configuration please make sure you modify the SERVER_URL variable in the main.js file.
 
 ## Deployment
 
