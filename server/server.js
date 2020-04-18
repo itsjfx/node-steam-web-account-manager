@@ -126,7 +126,6 @@ function reqGetCode(req, res) {
 	}
 	
 	console.log("User requesting login code for " + req.params.username + " from " + req.ip);
-	res.header("Content-Type", "text/plain");
 	res.send({"code":SteamTotp.generateAuthCode(req.accDetails.shared_secret)});
 }
 
