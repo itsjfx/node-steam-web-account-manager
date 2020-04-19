@@ -48,8 +48,8 @@ Below is a simple example of nginx location blocks that can do the trick.
 ```
 server {
 	location / {
-    	auth_basic "Restricted Content";
-        auth_basic_user_file /etc/nginx/.htpasswd;
+		auth_basic "Restricted Content";
+		auth_basic_user_file /etc/nginx/.htpasswd;
 		root /var/www/account-manager/html/;
 	}
 
