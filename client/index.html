@@ -13,6 +13,14 @@
 <body class="bg-dark">
 	<div class="container">
 	<h1>Steam Account Manager =)</h1>
+	<form id="server-url-holder" class="hide-by-default form-horizontal">
+		<div class="form-group">
+			<label for="server-url"><h5>Override Server URL (add no trailing /):</h5></label>
+			<div class="col-9">
+				<input type="text" id="server-url" name="server-url" class="form-control">
+			</div>
+		</div>
+	</form>
 	<table id="accounts" class="table table-dark table-sm hide-by-default" style="width: 100%; display: table;">
 		<thead>
 		<tr>
@@ -29,6 +37,7 @@
 	
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="config.js"></script>
 	<script src="assets/js/main.js"></script>
 </body>
 </html>

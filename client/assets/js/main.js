@@ -1,4 +1,6 @@
-const SERVER_URL = 'http://example.com/api'; // no trailing /
+function getServerURL() {
+	return localStorage.getItem("serverUrl") || SERVER_URL;
+}
 
 function copyToClipboard(text) {
 	let textArea = document.createElement("textarea");
@@ -10,6 +12,24 @@ function copyToClipboard(text) {
 }
 
 $(function() {
+	let serverUrl = getServerURL();
+	if (ALLOW_SERVER_URL_OVERRIDE) {
+		$("#server-url").val(serverUrl);
+		$("#server-url-holder").show();
+	}
+
+	$("#server-url-holder").submit(function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		let serverUrl = $("#server-url").val();
+		console.log(serverUrl);
+		if (!serverUrl) {
+			localStorage.removeItem("serverUrl");
+		} else {
+			localStorage.setItem("serverUrl", serverUrl);
+		}
+		location.reload();
+	});
 	$("#accounts tbody").on("click", ".toggle-password", function() {
 		const account = $(this);
 		const password = $('#password_'+account.attr('username'));
@@ -27,7 +47,7 @@ $(function() {
 		const account = $(this);
 		const username = account.attr('username');
 
-		$.getJSON(`${SERVER_URL}/code/${username}`)
+		$.getJSON(`${serverUrl}/code/${username}`)
 		.done(resp => {
 			$(`#2fa_${username}`).text(resp.code);
 		})
@@ -40,7 +60,7 @@ $(function() {
 		copyToClipboard($(this).text());
 	});
 
-	$.getJSON(`${SERVER_URL}/details`)
+	$.getJSON(`${serverUrl}/details`)
 	.done(resp => {
 		const res = resp.data;
 		for (let username of Object.keys(res)) {
