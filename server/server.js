@@ -72,11 +72,20 @@ function loadAccounts(req, res, next) {
 		}
 
 		req.accDetails = JSON.parse(file.toString('utf8'));
+		// Gross way of converting the keys to lowercase
+		Object.keys(req.accDetails).forEach((username) => {
+			let acc = req.accDetails[username];
+			delete req.accDetails[username];
+			req.accDetails[username.toLowerCase()] = acc;
+		});
 		next();
 	});
 }
 
 function loadAccount(req, res, next) {
+	if (req.params.username && typeof req.params.username === "string") {
+		req.params.username = req.params.username.toLowerCase();
+	}
 	if (!req.params.username || !req.accDetails[req.params.username]) {
 		res.status(404).send("<h1>404 Not Found</h1>No account data was found for that username.");
 		return;
